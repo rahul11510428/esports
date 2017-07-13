@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.niit.model.Category;
 import com.niit.model.Product;
 
 @Repository 
@@ -50,7 +51,22 @@ public void deleteProduct(Product product)
 	
 }
 
+public void editProduct(Product product)
+{
+  Session session = sessionFactory.getCurrentSession();
+  session.update(product);
 }
 
+public List<Category> getAllCategories() 
+{
+  Session session = sessionFactory.getCurrentSession();
+  Query query =session.createQuery("from Category");
+  List<Category> categories =query.list();  
+  return categories;
+}
+
+
+
+}
 
 

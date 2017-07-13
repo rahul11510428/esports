@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.dao.ProductDao;
+import com.niit.model.Category;
 import com.niit.model.Product;
 
 @Service      // productServiceImpl =new ProductServiceImpl(); 
@@ -45,5 +46,17 @@ public void deleteProduct(int id)
 	Product product = productDao.getProductById(id);
 	productDao.deleteProduct(product);
 }
+
+public void editProduct(Product product)
+{
+	productDao.editProduct(product);
+	
+}
+
+public List<Category> getAllCategories()
+{
+  return productDao.getAllCategories();	
+}
+
 
 }
