@@ -6,6 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Min;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+ 
  
 
 @Entity
@@ -14,9 +19,13 @@ public class Product{
 	 @Id
 	 @GeneratedValue(strategy=GenerationType.AUTO)
 	 private int id;
+	 @NotEmpty(message="Product Name Cannot be Empty")
 	 private String productname;
+	 @Min(value=50)
 	 private double price;
+	 @Min(value=1)
 	 private int quantity;
+	 @NotEmpty(message="Description cannot be Empty")
 	 private String description;
 	 
     @ManyToOne

@@ -51,7 +51,7 @@ public void deleteProduct(Product product)
 	
 }
 
-public void editProduct(Product product)
+public void updateProduct(Product product)
 {
   Session session = sessionFactory.getCurrentSession();
   session.update(product);

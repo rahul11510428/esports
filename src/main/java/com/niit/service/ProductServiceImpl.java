@@ -47,9 +47,9 @@ public void deleteProduct(int id)
 	productDao.deleteProduct(product);
 }
 
-public void editProduct(Product product)
+public void updateProduct(Product product)
 {
-	productDao.editProduct(product);
+	productDao.updateProduct(product);
 	
 }
 
