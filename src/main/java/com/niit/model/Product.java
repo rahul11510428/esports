@@ -1,15 +1,18 @@
 package com.niit.model;
 
+// 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 
 import org.hibernate.validator.constraints.NotEmpty;
-
+import org.springframework.web.multipart.MultipartFile;
  
  
 
@@ -31,7 +34,16 @@ public class Product{
     @ManyToOne
     @JoinColumn(name="cid")
 	private Category category;
-	 
+	
+    @Transient
+    private MultipartFile image;
+    
+	public MultipartFile getImage() {
+		return image;
+	}
+	public void setImage(MultipartFile image) {
+		this.image = image;
+	}
 	public Category getCategory() {
 		return category;
 	}
