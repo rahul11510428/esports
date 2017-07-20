@@ -10,9 +10,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
+import com.niit.model.Authorities;
+import com.niit.model.BillingAddress;
 import com.niit.model.Category;
+import com.niit.model.Customer;
 import com.niit.model.Product;
+import com.niit.model.ShippingAddress;
+import com.niit.model.User;
 
 
 @Configuration
@@ -40,7 +44,7 @@ public class DBConfiguration {
 			hibernateproperties.setProperty("hibernate.hbm2ddl.auto","update");
 			hibernateproperties.setProperty("hibernate.show_sql","true");
 			lsf.addProperties(hibernateproperties);
-			Class classes[] = new Class[]{Product.class,Category.class};
+			Class classes[] = new Class[]{Product.class,Category.class,Customer.class,User.class,BillingAddress.class,ShippingAddress.class,Authorities.class};
 			return lsf.addAnnotatedClasses(classes).buildSessionFactory();
 			
 		}
