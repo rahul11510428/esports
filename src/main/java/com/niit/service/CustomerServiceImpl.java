@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.dao.CustomerDao;
 import com.niit.model.Customer;
+import com.niit.model.User;
 
 @Service
 @Transactional
@@ -23,6 +24,15 @@ public class CustomerServiceImpl implements CustomerService{
 		
 		customerDao.registerCustomer(customer);
 		
+	}
+
+	public User validateUser(String username) {
+ 		return customerDao.validateUser(username);
+	}
+
+	public Customer validateCustomer(String email) {
+		 
+		return  customerDao.validateCustomer(email);
 	}
 
 	

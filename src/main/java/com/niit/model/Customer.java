@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.validation.Valid;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -32,15 +33,17 @@ public class Customer{
 	private String phone;
 	
 	
-	
+	@Valid
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="user_id")
 	private User user;
 	
+	@Valid
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="billingaddress_id")
 	private BillingAddress billingAddress;
 	
+	@Valid
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="shippingaddress_id")
 	private ShippingAddress shippingAddress;

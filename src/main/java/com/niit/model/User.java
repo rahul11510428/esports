@@ -1,5 +1,6 @@
 package com.niit.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,10 +17,13 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	@NotEmpty(message="This Feild is required")
+	
+	@Column(unique=true,nullable=false)
 	private String username;
 	@NotEmpty(message="This Feild is required")
 	private String password;
 	private boolean enabled;
+	
 	
 	@OneToOne(mappedBy="user")
 	private Customer customer;
