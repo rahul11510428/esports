@@ -59,4 +59,10 @@ public List<Category> getAllCategories()
 }
 
 
+public List<Product> getProductByCategory(int cid) {
+	 
+	return productDao.getProductByCategory(cid);
+}
+
+
 }
