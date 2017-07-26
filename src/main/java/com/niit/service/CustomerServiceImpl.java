@@ -14,7 +14,7 @@ public class CustomerServiceImpl implements CustomerService{
 	
 	public void CustomerServiceImpl()
 	{
-		System.out.println("CustomerServiceImpl Object is created");
+		System.out.println(" Object is created");
 	}
 
 	@Autowired

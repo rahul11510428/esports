@@ -15,7 +15,7 @@ public class CustomerDaoImpl implements CustomerDao{
 	
 	public void CustomerDaoImpl()
 	{
-		System.out.println("CustomerDaoImpl Obj is created");
+		System.out.println(" Obj is created");
 	}
 		
 	@Autowired
@@ -23,10 +23,13 @@ public class CustomerDaoImpl implements CustomerDao{
 	
 	public void registerCustomer(Customer customer) {
 		
-		Authorities authorities = new Authorities();
-		authorities.setRole("ROLE_USER");
+		User user =customer.getUser();
+		user.setEnabled(true);
 		
 		String username =  customer.getUser().getUsername();
+		
+		Authorities authorities = new Authorities();
+		authorities.setRole("ROLE_USER");	
 		authorities.setUsername(username);
 		Session session = sessionFactory.getCurrentSession();
 		session.save(authorities);
