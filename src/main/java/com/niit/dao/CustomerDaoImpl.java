@@ -5,15 +5,17 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.model.Authorities;
 import com.niit.model.Customer;
 import com.niit.model.User;
 
 @Repository
+@Transactional
 public class CustomerDaoImpl implements CustomerDao{
 	
-	public void CustomerDaoImpl()
+	public CustomerDaoImpl()
 	{
 		System.out.println(" Obj is created");
 	}

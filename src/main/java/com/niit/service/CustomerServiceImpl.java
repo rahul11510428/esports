@@ -10,12 +10,13 @@ import com.niit.model.User;
 
 @Service
 @Transactional
+/*@Repository*/
 public class CustomerServiceImpl implements CustomerService{
 	
-	public void CustomerServiceImpl()
+	/*public void CustomerServiceImpl()
 	{
 		System.out.println(" Object is created");
-	}
+	}*/
 
 	@Autowired
 	private CustomerDao customerDao;
