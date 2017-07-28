@@ -8,5 +8,7 @@ public interface CustomerService {
 	public void registerCustomer(Customer customer);
 	public User validateUser(String username);
 	public Customer validateCustomer(String email);
+	
+	public Customer getCustomerByUsername( String username);
 
 }

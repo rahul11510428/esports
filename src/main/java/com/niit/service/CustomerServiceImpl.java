@@ -36,5 +36,10 @@ public class CustomerServiceImpl implements CustomerService{
 		return  customerDao.validateCustomer(email);
 	}
 
+	public Customer getCustomerByUsername(String username) {
+		 
+		return customerDao.getCustomerByUsername(username);
+	}
+
 	
 }

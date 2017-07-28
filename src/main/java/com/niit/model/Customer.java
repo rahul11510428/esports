@@ -33,11 +33,11 @@ public class Customer{
 	private String phone;
 	
 	
-	@Valid
 	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="user_id")
-	private User user;
-	
+	@JoinColumn(name="cart_id")
+	@Valid
+	private Cart cart;
+
 	@Valid
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="billingaddress_id")
@@ -50,6 +50,19 @@ public class Customer{
 	
 	
 	
+	
+	@Valid
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="user_id")
+	private User user;
+	
+	
+	public Cart getCart() {
+		return cart;
+	}
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
 	public BillingAddress getBillingAddress() {
 		return billingAddress;
 	}
