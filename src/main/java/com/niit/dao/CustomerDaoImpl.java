@@ -14,60 +14,76 @@ import com.niit.model.User;
 
 @Repository
 @Transactional
-public class CustomerDaoImpl implements CustomerDao{
-	
-	
+public class CustomerDaoImpl implements CustomerDao {
+
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	public void registerCustomer(Customer customer) {
-		
-		User user =customer.getUser();
+
+		User user = customer.getUser();
 		user.setEnabled(true);
-		
-		String username =  customer.getUser().getUsername();
-		
+
+		String username = customer.getUser().getUsername();
+
 		Authorities authorities = new Authorities();
-		authorities.setRole("ROLE_USER");	
+		authorities.setRole("ROLE_USER");
 		authorities.setUsername(username);
-		
+
 		Cart cart = new Cart();
 		cart.setCustomer(customer);
 		customer.setCart(cart);
-		
+
 		Session session = sessionFactory.getCurrentSession();
 		session.save(authorities);
 		session.save(customer);
 	}
 
-	public User validateUser(String username)
-	{
-	  Session session = sessionFactory.getCurrentSession();
-	  Query query =session.createQuery("from User where username=? ");
-	  query.setString(0,username);
-	  User user =(User)query.uniqueResult();
-	  return user;
-	  
+	public User validateUser(String username) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from User where username=? ");
+		query.setString(0, username);
+		User user = (User) query.uniqueResult();
+		return user;
+
 	}
 
-	public Customer validateCustomer(String email)
-	{
-	 Session session =sessionFactory.getCurrentSession();
-	 Query query =session.createQuery("from Customer where email=?");
-	 query.setString(0, email);
-	 Customer customer = (Customer)query.uniqueResult();
-	 return customer;	 
+	public Customer validateCustomer(String email) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from Customer where email=?");
+		query.setString(0, email);
+		Customer customer = (Customer) query.uniqueResult();
+		return customer;
 	}
 
 	public Customer getCustomerByUsername(String username) {
-		 
-	    Session session = sessionFactory.getCurrentSession();
-	    Query query =  session.createQuery("from Customer where user.username=? ");
-	    query.setString(0,username);
-	    
-	    Customer customer = (Customer)query.uniqueResult();
-	    return customer;		
+
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from Customer where user.username=? ");
+		query.setString(0, username);
+
+		Customer customer = (Customer) query.uniqueResult();
+		return customer;
 	}
-  
-   
+
+	
+	public Customer getCustomerByAnswer(String answer)
+	{
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from Customer where answer =?");
+		query.setString(0,answer);
+		Customer customer = (Customer)query.uniqueResult();
+		return customer;
+	}
+	
+	public void updateUser(String password,int userid) {
+
+       Session session = sessionFactory.getCurrentSession();
+       Query query = session.createQuery("UPDATE User set password = ?  WHERE id =? ");
+	   query.setString(0,password);
+       query.setInteger(1,userid);		 
+	}
+
+	 
+
 }

@@ -10,5 +10,10 @@ public interface CustomerService {
 	public Customer validateCustomer(String email);
 	
 	public Customer getCustomerByUsername( String username);
-
+	
+	public Customer getCustomerByAnswer(String answer);
+	
+	public  void updateUser(String password, int userid);
+	
+	 
 }

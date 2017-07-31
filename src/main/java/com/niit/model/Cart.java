@@ -18,7 +18,6 @@ public class Cart {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private  int id;
 	
-	
 	private  double grandTotal;
 	
 	@OneToOne()

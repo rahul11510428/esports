@@ -10,36 +10,44 @@ import com.niit.model.User;
 
 @Service
 @Transactional
-/*@Repository*/
-public class CustomerServiceImpl implements CustomerService{
-	
-	/*public void CustomerServiceImpl()
-	{
-		System.out.println(" Object is created");
-	}*/
+/* @Repository */
+public class CustomerServiceImpl implements CustomerService {
 
 	@Autowired
 	private CustomerDao customerDao;
-	
+
 	public void registerCustomer(Customer customer) {
-		
+
 		customerDao.registerCustomer(customer);
-		
+
 	}
 
 	public User validateUser(String username) {
- 		return customerDao.validateUser(username);
+		return customerDao.validateUser(username);
 	}
 
 	public Customer validateCustomer(String email) {
-		 
-		return  customerDao.validateCustomer(email);
+
+		return customerDao.validateCustomer(email);
 	}
 
 	public Customer getCustomerByUsername(String username) {
-		 
+
 		return customerDao.getCustomerByUsername(username);
 	}
 
+	 
+	public Customer getCustomerByAnswer(String answer)
+	{
+		return customerDao.getCustomerByAnswer(answer);
+	}
 	
+	public void updateUser(String password,int  userid) {
+	  
+		customerDao.updateUser(password,userid);
+		
+	}
+
+	 
+
 }
