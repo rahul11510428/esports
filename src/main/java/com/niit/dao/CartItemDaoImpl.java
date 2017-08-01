@@ -46,5 +46,14 @@ public class CartItemDaoImpl implements CartItemDao {
 			session.delete(cartItem);
 		}
 	}
+	
+	public Cart getCartBycartId(int cartId)
+	{
+		Session session = sessionFactory.getCurrentSession();
+	    Cart cart = (Cart)session.get(Cart.class, cartId);
+	    return cart;
+		
+		
+	}
 
 }

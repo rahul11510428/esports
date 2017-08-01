@@ -1,5 +1,6 @@
 package com.niit.service;
 
+import com.niit.model.Cart;
 import com.niit.model.CartItem;
 
 public interface CartItemService {
@@ -11,5 +12,5 @@ public interface CartItemService {
 	
 	public void  removeAllCartItems(int cartId);
 	
-	
+	public Cart getCart(int cartId);	
 }

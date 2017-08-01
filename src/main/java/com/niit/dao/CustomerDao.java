@@ -1,5 +1,6 @@
 package com.niit.dao;
 
+import com.niit.model.Cart;
 import com.niit.model.Customer;
 import com.niit.model.User;
 
@@ -14,7 +15,8 @@ public interface CustomerDao {
 	
 	public Customer getCustomerByAnswer(String answer);
 	
-    public void updateUser(String password ,int userid);
+    public void updateUser(String password ,String username);
+    
 	
 	 
 }

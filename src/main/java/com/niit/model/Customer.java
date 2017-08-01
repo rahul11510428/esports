@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -29,6 +30,7 @@ public class Customer {
 	@NotEmpty(message = "This Feild is required")
 	private String email;
 	@NotEmpty(message = "This Feild is required")
+	@Size(max=10,min=10)
 	private String phone;
 
 	@OneToOne(cascade = CascadeType.ALL)
@@ -46,7 +48,7 @@ public class Customer {
 	@JoinColumn(name = "shippingaddress_id")
 	private ShippingAddress shippingAddress;
 
-	@NotEmpty(message="Cannot be Empty")
+	
 	private String securityquestion;
 
 	@Valid
@@ -54,7 +56,7 @@ public class Customer {
 	@JoinColumn(name = "user_id")
 	private User user;
    
-	@NotEmpty(message="Cannot be Empty")
+	 
 	private String answer;
 
 	public String getAnswer() {

@@ -19,6 +19,7 @@ import com.niit.model.Cart;
 import com.niit.model.CartItem;
 import com.niit.model.Category;
 import com.niit.model.Customer;
+import com.niit.model.CustomerOrder;
 import com.niit.model.Product;
 import com.niit.model.ShippingAddress;
 import com.niit.model.User;
@@ -49,7 +50,7 @@ public class DBConfiguration {
 			hibernateproperties.setProperty("hibernate.hbm2ddl.auto","update");
 			hibernateproperties.setProperty("hibernate.show_sql","true");
 			lsf.addProperties(hibernateproperties);
-			Class classes[] = new Class[]{Product.class,Category.class,Customer.class,User.class,BillingAddress.class,ShippingAddress.class,Authorities.class,Cart.class,CartItem.class};
+			Class classes[] = new Class[]{Product.class,Category.class,Customer.class,User.class,BillingAddress.class,ShippingAddress.class,Authorities.class,Cart.class,CartItem.class,CustomerOrder.class};
 			return lsf.addAnnotatedClasses(classes).buildSessionFactory();
 			
 		}
