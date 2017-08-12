@@ -21,4 +21,11 @@ public class CustomerOrderServiceImpl implements CustomerOrderService {
 		return customerOrderDao.createOrder(cart);
 	}
 
+
+	public void QuantityUpdate(int pid, int qty) {
+		 
+		customerOrderDao.QuantityUpdate(pid, qty);
+		
+	}
+
 }

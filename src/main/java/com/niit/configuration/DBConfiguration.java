@@ -35,9 +35,9 @@ public class DBConfiguration {
 	{
 		BasicDataSource datasource = new BasicDataSource();
 		datasource.setDriverClassName("org.h2.Driver");
-		datasource.setUrl("jdbc:h2:tcp://localhost/~/test");
+		datasource.setUrl("jdbc:h2:tcp://localhost/~/test6");
 		datasource.setUsername("rahul428");
-		datasource.setPassword("rahul428");
+		datasource.setPassword("");
 		return datasource;
 	}
 		 

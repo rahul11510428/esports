@@ -76,12 +76,18 @@ public class CustomerDaoImpl implements CustomerDao {
 		return customer;
 	}
 	
-	public void updateUser(String password,String username) {
+	public void updateUser(User user) {
 
        Session session = sessionFactory.getCurrentSession();
-       Query query = session.createQuery("UPDATE User SET password = '"+password+ "' WHERE username = '" +username+"'");
-	  
-       query.executeUpdate();
+       
+        session.update(user);
+	}
+
+	public void updateCustomer(Customer customer) {
+
+       Session session = sessionFactory.getCurrentSession();
+       session.saveOrUpdate(customer);
+		
 	}
 
 	 

@@ -7,4 +7,5 @@ public interface CustomerOrderDao {
 
 	
 	public CustomerOrder createOrder(Cart cart);
+	public  void QuantityUpdate(int pid, int qty);
 }

@@ -48,7 +48,7 @@ public class Customer {
 	@JoinColumn(name = "shippingaddress_id")
 	private ShippingAddress shippingAddress;
 
-	
+	@NotEmpty(message = "This Feild is required")
 	private String securityquestion;
 
 	@Valid
@@ -56,7 +56,7 @@ public class Customer {
 	@JoinColumn(name = "user_id")
 	private User user;
    
-	 
+	@NotEmpty(message = "This Feild is required") 
 	private String answer;
 
 	public String getAnswer() {

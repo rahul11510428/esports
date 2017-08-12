@@ -5,6 +5,7 @@ package com.niit.dao;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import com.niit.model.Cart;
 import com.niit.model.CartItem;
 import com.niit.model.Customer;
 import com.niit.model.CustomerOrder;
+import com.niit.model.Product;
 
 @Repository
 public class CustomerOrderDaoimpl implements CustomerOrderDao {
@@ -47,10 +49,25 @@ public class CustomerOrderDaoimpl implements CustomerOrderDao {
 		customerOrder.setCustomer(customer);
 		customerOrder.setBillingAddress(customer.getBillingAddress());
 		customerOrder.setShippingAddress(customer.getShippingAddress());
-		session.save(customerOrder); // insert, also execute update queries for
+		session.save(customerOrder); // insert, also execuStte update queries for
 										// other tables
 		return customerOrder;
 
+	}
+	
+	
+	public void QuantityUpdate(int pid, int qty)
+	{
+		Session session =  sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from Product where id =?");
+	    query.setInteger(0,pid);
+	    
+	    query.executeUpdate();
+	    Product product = (Product)query.uniqueResult();
+	    int Qty= product.getQuantity();
+	    Query qry= session.createQuery("UPDATE Product  SET quantity = '" + (Qty-qty) + "' where id = '"+ pid + "'");
+	    qry.executeUpdate();
+	    
 	}
 
 }

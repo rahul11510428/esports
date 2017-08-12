@@ -27,7 +27,8 @@ public class Product{
 	 private String productname;
 	 @Min(value=50)
 	 private double price;
-	 @Min(value=1)
+	 
+	 
 	 private int quantity;
 	 @NotEmpty(message="Description cannot be Empty")
 	 private String description;

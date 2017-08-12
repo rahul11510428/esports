@@ -15,8 +15,8 @@ public interface CustomerDao {
 	
 	public Customer getCustomerByAnswer(String answer);
 	
-    public void updateUser(String password ,String username);
+    public void updateUser(User user);
     
-	
+	public void updateCustomer(Customer customer);
 	 
 }

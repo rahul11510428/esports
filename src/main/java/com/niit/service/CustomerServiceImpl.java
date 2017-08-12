@@ -42,9 +42,15 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerDao.getCustomerByAnswer(answer);
 	}
 	
-	public void updateUser(String password,String username) {
+	public void updateUser(User user) {
 	  
-		customerDao.updateUser(password,username);
+		customerDao.updateUser(user);
+		
+	}
+
+	public void updateCustomer(Customer customer) {
+		 
+		customerDao.updateCustomer(customer);
 		
 	}
 
